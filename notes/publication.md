@@ -26,3 +26,17 @@ Validation is on Windows/Ryzen 9 7900X with Clang 23.1.2, Rust 1.95.0, Python
 been executed here. Only Tide receives WASI validation; Bevy/Flecs/EnTT results
 in this publication are native CPU results. No browser rendering, networking,
 cross-OS, mobile or sanitizer performance claim follows.
+
+The public four-engine report is `results/2026-10-29-four-ecs`: 96 accepted
+processes, four cyclic rounds, 200 warmup and 400 measured ticks each. One
+50%-frozen attempt overlapped another build and was rejected in full; its
+evidence remains, and three quiet resets are recorded across accepted cases.
+Every measured digest agrees; the exact measured manifest also matches the
+75-case validation report. No results from different reports are pooled.
+
+On this machine Tide has the lowest median in particles, dense wide and each
+fixed frozen-density case; EnTT leads churn. Churn varies substantially in Bevy
+and Flecs, and the earlier separate Tide/Bevy report has different churn medians.
+The website carries complete medians/ranges and implementation descriptions,
+including EnTT's explicit dispatch and Flecs' ordinary deferred creation path.
+These observations are specific to the pinned implementations and workloads.

@@ -1,0 +1,699 @@
+{
+  "schema": 1,
+  "valid": true,
+  "processes": 96,
+  "rounds": 4,
+  "warmup": 200,
+  "ticks": 400,
+  "engines": [
+    "Tide",
+    "Bevy",
+    "Flecs",
+    "EnTT"
+  ],
+  "manifest_sha256": "ef7497461e550728344438a8d005cd83d480a81ae2c4a3593869c6aa37847474",
+  "metadata": {
+    "dependencies": {
+      "schema": 1,
+      "tide": {
+        "repository": "https://github.com/Tide-Engine/tide-engine.git",
+        "revision": "fe5e96be1c61c7372590e7466dc26810a910bb14"
+      },
+      "bevy": {
+        "version": "0.20.0",
+        "rust": "1.95.0",
+        "storage": "Table",
+        "lockfile": "bevy/Cargo.lock"
+      },
+      "flecs": {
+        "repository": "https://github.com/SanderMertens/flecs.git",
+        "version": "4.1.6",
+        "revision": "fb55f3c25660425cfe1bc4cf5e6bff8b3f18a9b8"
+      },
+      "entt": {
+        "repository": "https://github.com/skypjack/entt.git",
+        "version": "4.0.0",
+        "revision": "85c6bba014049b5de8fad49d25424df2f1f6a8c1"
+      }
+    },
+    "tide_revision": "fe5e96be1c61c7372590e7466dc26810a910bb14",
+    "benchmark_revision": "0f59a05338aecb3b73884212960704e54c6d9bd0",
+    "benchmark_tracked_changes": "",
+    "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+    "os": "Windows-11-10.0.26200-SP0",
+    "clang": "clang version 23.1.2 (https://github.com/llvm/llvm-project 85ac560262434c9ccfc0c183ec22d4138ed647fb)\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\Program Files\\LLVM\\bin\nBuild config: +alloc:rpmalloc",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-pc-windows-msvc\nrelease: 1.95.0\nLLVM version: 22.1.2",
+    "rustflags": "-C target-cpu=x86-64 -C target-feature=-fma",
+    "node": "v24.22.1",
+    "scope": "ECS update and deferred structural work; excludes hashing/snapshots/network/render; fixed frozen membership"
+  },
+  "scope": "Single-thread ECS ticks, including deferred churn changes; fixed frozen membership. Setup, digest, hashing, snapshots, rollback, networking and rendering excluded.",
+  "estimator": "Median of process medians; range is process-median min/max. Each implementation occupies every launch position once per four rounds.",
+  "cases": [
+    {
+      "valid": true,
+      "id": "particles-1m",
+      "workload": "particles",
+      "count": 1000000,
+      "rate": 0,
+      "tagged": 0,
+      "frozen": 0,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0x123220c22250196a",
+      "entity_count": 1000000,
+      "frozen_count": 0,
+      "engines": {
+        "Tide": {
+          "median_ms": 0.446475,
+          "range_ms": [
+            0.43545,
+            0.5787
+          ],
+          "process_medians_ms": [
+            0.4515,
+            0.5787,
+            0.44145,
+            0.43545
+          ]
+        },
+        "Bevy": {
+          "median_ms": 1.1556250000000001,
+          "range_ms": [
+            1.14835,
+            1.2658
+          ],
+          "process_medians_ms": [
+            1.2658,
+            1.15605,
+            1.14835,
+            1.1552
+          ],
+          "paired_ratio_over_tide": 2.6271008346394877,
+          "paired_ratios_over_tide": [
+            2.803543743078627,
+            1.9976671850699845,
+            2.601313852078378,
+            2.652887817200597
+          ]
+        },
+        "Flecs": {
+          "median_ms": 1.6671,
+          "range_ms": [
+            1.66455,
+            1.73415
+          ],
+          "process_medians_ms": [
+            1.668,
+            1.73415,
+            1.66455,
+            1.6662
+          ],
+          "paired_ratio_over_tide": 3.7324971806516505,
+          "paired_ratios_over_tide": [
+            3.6943521594684383,
+            2.996630378434422,
+            3.770642201834862,
+            3.826386496727523
+          ]
+        },
+        "EnTT": {
+          "median_ms": 1.883975,
+          "range_ms": [
+            1.84365,
+            1.91285
+          ],
+          "process_medians_ms": [
+            1.85635,
+            1.91285,
+            1.84365,
+            1.9116
+          ],
+          "paired_ratio_over_tide": 4.143933913797365,
+          "paired_ratios_over_tide": [
+            4.111517165005536,
+            3.3054259547261102,
+            4.176350662589194,
+            4.389941439889769
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 0.43295,
+        "range_ms": [
+          0.4096,
+          0.47085
+        ],
+        "process_medians_ms": [
+          0.47085,
+          0.45215,
+          0.4096,
+          0.41375
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "particles-1m/attempt-1"
+    },
+    {
+      "valid": true,
+      "id": "wide-1m",
+      "workload": "wide",
+      "count": 1000000,
+      "rate": 0,
+      "tagged": 0,
+      "frozen": 0,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0x949538645cf2c1f2",
+      "entity_count": 1000000,
+      "frozen_count": 0,
+      "engines": {
+        "Tide": {
+          "median_ms": 1.291375,
+          "range_ms": [
+            1.22825,
+            1.3443
+          ],
+          "process_medians_ms": [
+            1.3443,
+            1.29595,
+            1.2868,
+            1.22825
+          ]
+        },
+        "Bevy": {
+          "median_ms": 2.408375,
+          "range_ms": [
+            2.38005,
+            2.60395
+          ],
+          "process_medians_ms": [
+            2.38005,
+            2.60395,
+            2.3803,
+            2.43645
+          ],
+          "paired_ratio_over_tide": 1.916729183851234,
+          "paired_ratios_over_tide": [
+            1.7704753403258202,
+            2.009298198232957,
+            1.8497824059682937,
+            1.9836759617341744
+          ]
+        },
+        "Flecs": {
+          "median_ms": 2.25955,
+          "range_ms": [
+            2.2428,
+            2.2873
+          ],
+          "process_medians_ms": [
+            2.27025,
+            2.2873,
+            2.2428,
+            2.24885
+          ],
+          "paired_ratio_over_tide": 1.7539441309366957,
+          "paired_ratios_over_tide": [
+            1.6887971434947555,
+            1.7649600679038544,
+            1.742928193969537,
+            1.8309383268878485
+          ]
+        },
+        "EnTT": {
+          "median_ms": 2.8536,
+          "range_ms": [
+            2.82575,
+            2.8802
+          ],
+          "process_medians_ms": [
+            2.8802,
+            2.87725,
+            2.82995,
+            2.82575
+          ],
+          "paired_ratio_over_tide": 2.2097005356037163,
+          "paired_ratios_over_tide": [
+            2.1425277095886335,
+            2.2201859639646595,
+            2.199215107242773,
+            2.300630979035213
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 0.9709749999999999,
+        "range_ms": [
+          0.9652,
+          0.9733
+        ],
+        "process_medians_ms": [
+          0.97285,
+          0.9733,
+          0.9691,
+          0.9652
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "wide-1m/attempt-1"
+    },
+    {
+      "valid": true,
+      "id": "filtered50-1m",
+      "workload": "wide",
+      "count": 1000000,
+      "rate": 0,
+      "tagged": 1,
+      "frozen": 50,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0x5696f80210717ed3",
+      "entity_count": 1000000,
+      "frozen_count": 499674,
+      "engines": {
+        "Tide": {
+          "median_ms": 0.445225,
+          "range_ms": [
+            0.42905,
+            0.46295
+          ],
+          "process_medians_ms": [
+            0.44185,
+            0.46295,
+            0.4486,
+            0.42905
+          ]
+        },
+        "Bevy": {
+          "median_ms": 1.143575,
+          "range_ms": [
+            1.1059,
+            1.201
+          ],
+          "process_medians_ms": [
+            1.12365,
+            1.201,
+            1.1635,
+            1.1059
+          ],
+          "paired_ratio_over_tide": 2.5855898367049353,
+          "paired_ratios_over_tide": [
+            2.5430575987326014,
+            2.5942326385138785,
+            2.593624609897459,
+            2.5775550635124116
+          ]
+        },
+        "Flecs": {
+          "median_ms": 1.103475,
+          "range_ms": [
+            1.09495,
+            1.12315
+          ],
+          "process_medians_ms": [
+            1.09495,
+            1.12315,
+            1.1106,
+            1.09635
+          ],
+          "paired_ratio_over_tide": 2.4769028066698247,
+          "paired_ratios_over_tide": [
+            2.4781034287654182,
+            2.4260719300140408,
+            2.475702184574231,
+            2.5552965854795477
+          ]
+        },
+        "EnTT": {
+          "median_ms": 1.4656,
+          "range_ms": [
+            1.43635,
+            1.46895
+          ],
+          "process_medians_ms": [
+            1.46395,
+            1.46725,
+            1.43635,
+            1.46895
+          ],
+          "paired_ratio_over_tide": 3.2575393359123987,
+          "paired_ratios_over_tide": [
+            3.3132284712006337,
+            3.1693487417647694,
+            3.2018502006241643,
+            3.423726838363827
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 1.12585,
+        "range_ms": [
+          1.12145,
+          1.1347
+        ],
+        "process_medians_ms": [
+          1.12145,
+          1.1266,
+          1.1251,
+          1.1347
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "filtered50-1m/attempt-2"
+    },
+    {
+      "valid": true,
+      "id": "filtered95-1m",
+      "workload": "wide",
+      "count": 1000000,
+      "rate": 0,
+      "tagged": 1,
+      "frozen": 95,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0xd332cbdb933b490c",
+      "entity_count": 1000000,
+      "frozen_count": 950065,
+      "engines": {
+        "Tide": {
+          "median_ms": 0.029249999999999998,
+          "range_ms": [
+            0.0289,
+            0.0293
+          ],
+          "process_medians_ms": [
+            0.0289,
+            0.0293,
+            0.0292,
+            0.0293
+          ]
+        },
+        "Bevy": {
+          "median_ms": 0.1012,
+          "range_ms": [
+            0.1,
+            0.1069
+          ],
+          "process_medians_ms": [
+            0.1069,
+            0.1017,
+            0.1007,
+            0.1
+          ],
+          "paired_ratio_over_tide": 3.459809949039226,
+          "paired_ratios_over_tide": [
+            3.698961937716263,
+            3.47098976109215,
+            3.448630136986301,
+            3.4129692832764507
+          ]
+        },
+        "Flecs": {
+          "median_ms": 0.109625,
+          "range_ms": [
+            0.1091,
+            0.11205
+          ],
+          "process_medians_ms": [
+            0.11205,
+            0.1091,
+            0.11005,
+            0.1092
+          ],
+          "paired_ratio_over_tide": 3.7478990368881204,
+          "paired_ratios_over_tide": [
+            3.8771626297577857,
+            3.7235494880546076,
+            3.768835616438356,
+            3.7269624573378843
+          ]
+        },
+        "EnTT": {
+          "median_ms": 0.13195,
+          "range_ms": [
+            0.13005,
+            0.1372
+          ],
+          "process_medians_ms": [
+            0.13005,
+            0.1372,
+            0.13355,
+            0.13035
+          ],
+          "paired_ratio_over_tide": 4.5368150684931505,
+          "paired_ratios_over_tide": [
+            4.5,
+            4.68259385665529,
+            4.573630136986301,
+            4.448805460750853
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 1.0343499999999999,
+        "range_ms": [
+          1.0145,
+          1.05095
+        ],
+        "process_medians_ms": [
+          1.0145,
+          1.0251,
+          1.05095,
+          1.0436
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "filtered95-1m/attempt-1"
+    },
+    {
+      "valid": true,
+      "id": "filtered99-1m",
+      "workload": "wide",
+      "count": 1000000,
+      "rate": 0,
+      "tagged": 1,
+      "frozen": 99,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0xa683eb7fe00d6622",
+      "entity_count": 1000000,
+      "frozen_count": 989911,
+      "engines": {
+        "Tide": {
+          "median_ms": 0.00575,
+          "range_ms": [
+            0.0057,
+            0.0058
+          ],
+          "process_medians_ms": [
+            0.0058,
+            0.0057,
+            0.0057,
+            0.0058
+          ]
+        },
+        "Bevy": {
+          "median_ms": 0.020225,
+          "range_ms": [
+            0.0201,
+            0.0206
+          ],
+          "process_medians_ms": [
+            0.0201,
+            0.02035,
+            0.0206,
+            0.0201
+          ],
+          "paired_ratio_over_tide": 3.5178463399879005,
+          "paired_ratios_over_tide": [
+            3.4655172413793105,
+            3.570175438596491,
+            3.6140350877192984,
+            3.4655172413793105
+          ]
+        },
+        "Flecs": {
+          "median_ms": 0.021875,
+          "range_ms": [
+            0.02165,
+            0.0225
+          ],
+          "process_medians_ms": [
+            0.022,
+            0.0225,
+            0.02165,
+            0.02175
+          ],
+          "paired_ratio_over_tide": 3.7956745311554747,
+          "paired_ratios_over_tide": [
+            3.793103448275862,
+            3.9473684210526314,
+            3.7982456140350873,
+            3.75
+          ]
+        },
+        "EnTT": {
+          "median_ms": 0.029025000000000002,
+          "range_ms": [
+            0.0267,
+            0.0297
+          ],
+          "process_medians_ms": [
+            0.0267,
+            0.0286,
+            0.02945,
+            0.0297
+          ],
+          "paired_ratio_over_tide": 5.069116757410768,
+          "paired_ratios_over_tide": [
+            4.603448275862069,
+            5.017543859649122,
+            5.166666666666667,
+            5.120689655172415
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 1.1503999999999999,
+        "range_ms": [
+          1.12695,
+          1.15295
+        ],
+        "process_medians_ms": [
+          1.1481,
+          1.12695,
+          1.1527,
+          1.15295
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "filtered99-1m/attempt-1"
+    },
+    {
+      "valid": true,
+      "id": "churn-2k",
+      "workload": "churn",
+      "count": 0,
+      "rate": 2000,
+      "tagged": 0,
+      "frozen": 0,
+      "threads": 1,
+      "rounds": 4,
+      "warmup": 200,
+      "ticks": 400,
+      "processes": 16,
+      "digest": "0xce59906bd9454a12",
+      "entity_count": 198814,
+      "frozen_count": 0,
+      "engines": {
+        "Tide": {
+          "median_ms": 0.34695,
+          "range_ms": [
+            0.33555,
+            0.3891
+          ],
+          "process_medians_ms": [
+            0.3558,
+            0.33555,
+            0.3381,
+            0.3891
+          ]
+        },
+        "Bevy": {
+          "median_ms": 0.520375,
+          "range_ms": [
+            0.4655,
+            0.6861
+          ],
+          "process_medians_ms": [
+            0.5398,
+            0.4655,
+            0.50095,
+            0.6861
+          ],
+          "paired_ratio_over_tide": 1.4994033466454988,
+          "paired_ratios_over_tide": [
+            1.5171444631815625,
+            1.3872746237520488,
+            1.481662230109435,
+            1.7632999228989978
+          ]
+        },
+        "Flecs": {
+          "median_ms": 0.56875,
+          "range_ms": [
+            0.4542,
+            0.7395
+          ],
+          "process_medians_ms": [
+            0.56055,
+            0.4542,
+            0.57695,
+            0.7395
+          ],
+          "paired_ratio_over_tide": 1.6409557700930653,
+          "paired_ratios_over_tide": [
+            1.5754637436762227,
+            1.3535985695127402,
+            1.706447796509908,
+            1.9005397070161913
+          ]
+        },
+        "EnTT": {
+          "median_ms": 0.262675,
+          "range_ms": [
+            0.2598,
+            0.27045
+          ],
+          "process_medians_ms": [
+            0.27045,
+            0.2598,
+            0.2626,
+            0.26275
+          ],
+          "paired_ratio_over_tide": 0.7671846365849226,
+          "paired_ratios_over_tide": [
+            0.7601180438448567,
+            0.7742512293249887,
+            0.7766932860100562,
+            0.6752762785916216
+          ]
+        }
+      },
+      "c_reference": {
+        "median_ms": 0.20125,
+        "range_ms": [
+          0.2004,
+          0.2031
+        ],
+        "process_medians_ms": [
+          0.2005,
+          0.202,
+          0.2004,
+          0.2031
+        ],
+        "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+      },
+      "evidence": "churn-2k/attempt-1"
+    }
+  ],
+  "excluded_attempts": [
+    "filtered50-1m/attempt-1"
+  ]
+}

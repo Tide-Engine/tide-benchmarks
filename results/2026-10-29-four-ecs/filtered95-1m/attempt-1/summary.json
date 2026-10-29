@@ -1,0 +1,106 @@
+{
+  "valid": true,
+  "id": "filtered95-1m",
+  "workload": "wide",
+  "count": 1000000,
+  "rate": 0,
+  "tagged": 1,
+  "frozen": 95,
+  "threads": 1,
+  "rounds": 4,
+  "warmup": 200,
+  "ticks": 400,
+  "processes": 16,
+  "digest": "0xd332cbdb933b490c",
+  "entity_count": 1000000,
+  "frozen_count": 950065,
+  "engines": {
+    "Tide": {
+      "median_ms": 0.029249999999999998,
+      "range_ms": [
+        0.0289,
+        0.0293
+      ],
+      "process_medians_ms": [
+        0.0289,
+        0.0293,
+        0.0292,
+        0.0293
+      ]
+    },
+    "Bevy": {
+      "median_ms": 0.1012,
+      "range_ms": [
+        0.1,
+        0.1069
+      ],
+      "process_medians_ms": [
+        0.1069,
+        0.1017,
+        0.1007,
+        0.1
+      ],
+      "paired_ratio_over_tide": 3.459809949039226,
+      "paired_ratios_over_tide": [
+        3.698961937716263,
+        3.47098976109215,
+        3.448630136986301,
+        3.4129692832764507
+      ]
+    },
+    "Flecs": {
+      "median_ms": 0.109625,
+      "range_ms": [
+        0.1091,
+        0.11205
+      ],
+      "process_medians_ms": [
+        0.11205,
+        0.1091,
+        0.11005,
+        0.1092
+      ],
+      "paired_ratio_over_tide": 3.7478990368881204,
+      "paired_ratios_over_tide": [
+        3.8771626297577857,
+        3.7235494880546076,
+        3.768835616438356,
+        3.7269624573378843
+      ]
+    },
+    "EnTT": {
+      "median_ms": 0.13195,
+      "range_ms": [
+        0.13005,
+        0.1372
+      ],
+      "process_medians_ms": [
+        0.13005,
+        0.1372,
+        0.13355,
+        0.13035
+      ],
+      "paired_ratio_over_tide": 4.5368150684931505,
+      "paired_ratios_over_tide": [
+        4.5,
+        4.68259385665529,
+        4.573630136986301,
+        4.448805460750853
+      ]
+    }
+  },
+  "c_reference": {
+    "median_ms": 1.0343499999999999,
+    "range_ms": [
+      1.0145,
+      1.05095
+    ],
+    "process_medians_ms": [
+      1.0145,
+      1.0251,
+      1.05095,
+      1.0436
+    ],
+    "scope": "Timed after Tide in the same process; contextual reference, not independently rotated"
+  }
+}

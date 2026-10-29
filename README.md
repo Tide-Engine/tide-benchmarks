@@ -84,8 +84,9 @@ score across workloads. Implementation details: [C++ paths](notes/cpp.md),
   eleven workloads and thread budgets, three alternating pairs each, with raw
   output and both excluded full-suite attempts preserved. This earlier run used
   the engine repository's original harness; its scope and estimator are separate.
-- New four-engine measurements are recorded alongside their build and validation
-  identities under `results/`; each report names the exact revisions it measured.
+- [Four-engine serial comparison, October 29, 2026](results/2026-10-29-four-ecs/README.md):
+  Tide, Bevy, Flecs and EnTT across six workloads, four balanced rounds each.
+  Includes all 96 accepted processes, the rejected attempt, validation and build identities.
 
 Numbers describe the listed hardware, versions, workload and implementation.
 Include ties and losses when presenting them. The tests cover selected CPU paths;
