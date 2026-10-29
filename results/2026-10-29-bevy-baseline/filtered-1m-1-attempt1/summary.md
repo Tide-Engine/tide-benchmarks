@@ -1,0 +1,10 @@
+Verified 6 processes in 3 alternating rounds.
+
+ECS ticks only; excludes setup, snapshots, per-tick hashing, networking and rendering.
+
+Times are milliseconds per tick, median of process medians. Ranges are process-median min/max.
+Bevy/Tide is the median paired ratio; values above 1 favor Tide.
+
+| Case | Threads | Tide ms (range) | Bevy ms (range) | C ms | Bevy/Tide |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| filtered-1m-1 | 1 | 0.436050 (0.416050–0.480600) | 1.135850 (1.083500–1.144650) | 1.188250 | 2.604× |

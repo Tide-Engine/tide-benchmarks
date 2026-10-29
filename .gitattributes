@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Measurement byte identities must survive every checkout unchanged.
+results/** -text -whitespace

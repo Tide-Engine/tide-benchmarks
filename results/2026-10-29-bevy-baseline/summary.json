@@ -1,0 +1,553 @@
+{
+  "valid": true,
+  "rounds": 3,
+  "warmup": 200,
+  "ticks": 400,
+  "has_before": false,
+  "processes": 66,
+  "estimator": "median of process tick medians; ratios are median of paired ratios",
+  "scope": "ECS ticks only; excludes setup, snapshots, per-tick hashing, networking and rendering",
+  "cases": [
+    {
+      "tagged": 0,
+      "workload": "particles",
+      "threads": 1,
+      "count": 1000000,
+      "id": "particles-1m-1",
+      "frozen": 0,
+      "rate": 0,
+      "digest": "0x123220c22250196a",
+      "tide_ms": 0.4583,
+      "bevy_ms": 1.1521,
+      "c_ms": 0.4133,
+      "tide_range_ms": [
+        0.4473,
+        0.4803
+      ],
+      "bevy_range_ms": [
+        1.1506,
+        1.17375
+      ],
+      "c_range_ms": [
+        0.4119,
+        0.417
+      ],
+      "ratio_bevy_over_tide": 2.5105825878245693,
+      "paired_ratios": [
+        2.5756762799016317,
+        2.5105825878245693,
+        2.443785134291068
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.4473,
+          0.4583,
+          0.4803
+        ],
+        "Bevy": [
+          1.1521,
+          1.1506,
+          1.17375
+        ],
+        "C": [
+          0.4119,
+          0.4133,
+          0.417
+        ]
+      }
+    },
+    {
+      "tagged": 0,
+      "workload": "particles",
+      "threads": 4,
+      "count": 1000000,
+      "id": "particles-1m-4",
+      "frozen": 0,
+      "rate": 0,
+      "digest": "0x123220c22250196a",
+      "tide_ms": 0.1265,
+      "bevy_ms": 0.43015,
+      "c_ms": 0.1247,
+      "tide_range_ms": [
+        0.1248,
+        0.1274
+      ],
+      "bevy_range_ms": [
+        0.42965,
+        0.43565
+      ],
+      "c_range_ms": [
+        0.1233,
+        0.1258
+      ],
+      "ratio_bevy_over_tide": 3.4003952569169957,
+      "paired_ratios": [
+        3.4907852564102564,
+        3.372448979591836,
+        3.4003952569169957
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.1248,
+          0.1274,
+          0.1265
+        ],
+        "Bevy": [
+          0.43565,
+          0.42965,
+          0.43015
+        ],
+        "C": [
+          0.1258,
+          0.1233,
+          0.1247
+        ]
+      }
+    },
+    {
+      "tagged": 0,
+      "workload": "wide",
+      "threads": 1,
+      "count": 1000000,
+      "id": "wide-1m-1",
+      "frozen": 0,
+      "rate": 0,
+      "digest": "0x949538645cf2c1f2",
+      "tide_ms": 1.3328,
+      "bevy_ms": 2.4964,
+      "c_ms": 1.017,
+      "tide_range_ms": [
+        1.32535,
+        1.4035
+      ],
+      "bevy_range_ms": [
+        2.38615,
+        2.59715
+      ],
+      "c_range_ms": [
+        0.99255,
+        1.08275
+      ],
+      "ratio_bevy_over_tide": 1.8003923491907798,
+      "paired_ratios": [
+        1.7786961168507303,
+        1.8003923491907798,
+        1.9486419567827131
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          1.4035,
+          1.32535,
+          1.3328
+        ],
+        "Bevy": [
+          2.4964,
+          2.38615,
+          2.59715
+        ],
+        "C": [
+          0.99255,
+          1.017,
+          1.08275
+        ]
+      }
+    },
+    {
+      "tagged": 0,
+      "workload": "wide",
+      "threads": 4,
+      "count": 1000000,
+      "id": "wide-1m-4",
+      "frozen": 0,
+      "rate": 0,
+      "digest": "0x949538645cf2c1f2",
+      "tide_ms": 0.67165,
+      "bevy_ms": 1.17735,
+      "c_ms": 0.55545,
+      "tide_range_ms": [
+        0.6715,
+        0.8212
+      ],
+      "bevy_range_ms": [
+        1.14365,
+        1.191
+      ],
+      "c_range_ms": [
+        0.551,
+        0.572
+      ],
+      "ratio_bevy_over_tide": 1.7031273268801193,
+      "paired_ratios": [
+        1.4503166098392597,
+        1.7529219087322265,
+        1.7031273268801193
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.8212,
+          0.67165,
+          0.6715
+        ],
+        "Bevy": [
+          1.191,
+          1.17735,
+          1.14365
+        ],
+        "C": [
+          0.55545,
+          0.572,
+          0.551
+        ]
+      }
+    },
+    {
+      "id": "filtered-1m-1",
+      "threads": 1,
+      "count": 1000000,
+      "tagged": 1,
+      "frozen": 50,
+      "rate": 0,
+      "workload": "wide",
+      "digest": "0x5696f80210717ed3",
+      "tide_ms": 0.43605,
+      "bevy_ms": 1.13585,
+      "c_ms": 1.18825,
+      "tide_range_ms": [
+        0.41605,
+        0.4806
+      ],
+      "bevy_range_ms": [
+        1.0835,
+        1.14465
+      ],
+      "c_range_ms": [
+        1.1172,
+        1.2659
+      ],
+      "ratio_bevy_over_tide": 2.6042542963586106,
+      "paired_ratios": [
+        2.6042542963586106,
+        2.6250429996560025,
+        2.363399916770703
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.41605,
+          0.43605,
+          0.4806
+        ],
+        "Bevy": [
+          1.0835,
+          1.14465,
+          1.13585
+        ],
+        "C": [
+          1.1172,
+          1.18825,
+          1.2659
+        ]
+      }
+    },
+    {
+      "id": "filtered-1m-4",
+      "threads": 4,
+      "count": 1000000,
+      "tagged": 1,
+      "frozen": 50,
+      "rate": 0,
+      "workload": "wide",
+      "digest": "0x5696f80210717ed3",
+      "tide_ms": 0.41065,
+      "bevy_ms": 0.4115,
+      "c_ms": 0.62585,
+      "tide_range_ms": [
+        0.40415,
+        0.4198
+      ],
+      "bevy_range_ms": [
+        0.41115,
+        0.41365
+      ],
+      "c_range_ms": [
+        0.5997,
+        0.639
+      ],
+      "ratio_bevy_over_tide": 1.0073054912942896,
+      "paired_ratios": [
+        0.9802286803239637,
+        1.0173203018681183,
+        1.0073054912942896
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.4198,
+          0.40415,
+          0.41065
+        ],
+        "Bevy": [
+          0.4115,
+          0.41115,
+          0.41365
+        ],
+        "C": [
+          0.5997,
+          0.639,
+          0.62585
+        ]
+      }
+    },
+    {
+      "id": "filtered-frozen95-1m-1",
+      "threads": 1,
+      "count": 1000000,
+      "tagged": 1,
+      "frozen": 95,
+      "rate": 0,
+      "workload": "wide",
+      "digest": "0xd332cbdb933b490c",
+      "tide_ms": 0.0294,
+      "bevy_ms": 0.1005,
+      "c_ms": 1.07135,
+      "tide_range_ms": [
+        0.0292,
+        0.0294
+      ],
+      "bevy_range_ms": [
+        0.10025,
+        0.1011
+      ],
+      "c_range_ms": [
+        1.06515,
+        1.07265
+      ],
+      "ratio_bevy_over_tide": 3.418367346938776,
+      "paired_ratios": [
+        3.418367346938776,
+        3.409863945578232,
+        3.4623287671232874
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.0294,
+          0.0294,
+          0.0292
+        ],
+        "Bevy": [
+          0.1005,
+          0.10025,
+          0.1011
+        ],
+        "C": [
+          1.06515,
+          1.07265,
+          1.07135
+        ]
+      }
+    },
+    {
+      "id": "filtered-frozen99-1m-1",
+      "threads": 1,
+      "count": 1000000,
+      "tagged": 1,
+      "frozen": 99,
+      "rate": 0,
+      "workload": "wide",
+      "digest": "0xa683eb7fe00d6622",
+      "tide_ms": 0.0057,
+      "bevy_ms": 0.01995,
+      "c_ms": 1.08325,
+      "tide_range_ms": [
+        0.0057,
+        0.0058
+      ],
+      "bevy_range_ms": [
+        0.0199,
+        0.02
+      ],
+      "c_range_ms": [
+        1.07,
+        1.11405
+      ],
+      "ratio_bevy_over_tide": 3.491228070175439,
+      "paired_ratios": [
+        3.4999999999999996,
+        3.491228070175439,
+        3.4482758620689657
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.0057,
+          0.0057,
+          0.0058
+        ],
+        "Bevy": [
+          0.01995,
+          0.0199,
+          0.02
+        ],
+        "C": [
+          1.11405,
+          1.08325,
+          1.07
+        ]
+      }
+    },
+    {
+      "id": "filtered-frozen99-1m-4",
+      "threads": 4,
+      "count": 1000000,
+      "tagged": 1,
+      "frozen": 99,
+      "rate": 0,
+      "workload": "wide",
+      "digest": "0xa683eb7fe00d6622",
+      "tide_ms": 0.0057,
+      "bevy_ms": 0.0221,
+      "c_ms": 0.7103,
+      "tide_range_ms": [
+        0.0057,
+        0.0058
+      ],
+      "bevy_range_ms": [
+        0.0213,
+        0.0233
+      ],
+      "c_range_ms": [
+        0.6678,
+        0.7303
+      ],
+      "ratio_bevy_over_tide": 3.8103448275862073,
+      "paired_ratios": [
+        4.087719298245614,
+        3.8103448275862073,
+        3.7368421052631575
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.0057,
+          0.0058,
+          0.0057
+        ],
+        "Bevy": [
+          0.0233,
+          0.0221,
+          0.0213
+        ],
+        "C": [
+          0.6678,
+          0.7103,
+          0.7303
+        ]
+      }
+    },
+    {
+      "tagged": 0,
+      "workload": "churn",
+      "threads": 1,
+      "count": 0,
+      "id": "churn-2k-1",
+      "frozen": 0,
+      "rate": 2000,
+      "digest": "0xce59906bd9454a12",
+      "tide_ms": 0.3385,
+      "bevy_ms": 0.3202,
+      "c_ms": 0.2006,
+      "tide_range_ms": [
+        0.33725,
+        0.3403
+      ],
+      "bevy_range_ms": [
+        0.2968,
+        0.3515
+      ],
+      "c_range_ms": [
+        0.2004,
+        0.2006
+      ],
+      "ratio_bevy_over_tide": 0.9494440326167531,
+      "paired_ratios": [
+        0.8721716132823979,
+        0.9494440326167531,
+        1.038404726735598
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.3403,
+          0.33725,
+          0.3385
+        ],
+        "Bevy": [
+          0.2968,
+          0.3202,
+          0.3515
+        ],
+        "C": [
+          0.2004,
+          0.2006,
+          0.2006
+        ]
+      }
+    },
+    {
+      "tagged": 0,
+      "workload": "churn",
+      "threads": 4,
+      "count": 0,
+      "id": "churn-2k-4",
+      "frozen": 0,
+      "rate": 2000,
+      "digest": "0xce59906bd9454a12",
+      "tide_ms": 0.35025,
+      "bevy_ms": 0.30455,
+      "c_ms": 0.2007,
+      "tide_range_ms": [
+        0.3312,
+        0.3655
+      ],
+      "bevy_range_ms": [
+        0.26305,
+        0.51825
+      ],
+      "c_range_ms": [
+        0.20005,
+        0.2007
+      ],
+      "ratio_bevy_over_tide": 0.9195350241545893,
+      "paired_ratios": [
+        0.7510349750178444,
+        1.4179206566347469,
+        0.9195350241545893
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.35025,
+          0.3655,
+          0.3312
+        ],
+        "Bevy": [
+          0.26305,
+          0.51825,
+          0.30455
+        ],
+        "C": [
+          0.2007,
+          0.2007,
+          0.20005
+        ]
+      }
+    }
+  ],
+  "batches": [
+    "build/bevy-latest-fe5e96be1-cases/particles-1m-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/particles-1m-4-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/wide-1m-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/wide-1m-4-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/filtered-1m-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/filtered-1m-4-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/filtered-frozen95-1m-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/filtered-frozen99-1m-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/filtered-frozen99-1m-4-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/churn-2k-1-attempt1",
+    "build/bevy-latest-fe5e96be1-cases/churn-2k-4-attempt1"
+  ]
+}

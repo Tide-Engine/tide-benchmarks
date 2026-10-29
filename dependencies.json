@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "tide": {"repository": "https://github.com/Tide-Engine/tide-engine.git", "revision": "fe5e96be1c61c7372590e7466dc26810a910bb14"},
+  "bevy": {"version": "0.20.0", "rust": "1.95.0", "storage": "Table", "lockfile": "bevy/Cargo.lock"},
+  "flecs": {"repository": "https://github.com/SanderMertens/flecs.git", "version": "4.1.6", "revision": "fb55f3c25660425cfe1bc4cf5e6bff8b3f18a9b8"},
+  "entt": {"repository": "https://github.com/skypjack/entt.git", "version": "4.0.0", "revision": "85c6bba014049b5de8fad49d25424df2f1f6a8c1"}
+}

@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "rounds": 3,
+  "warmup": 200,
+  "ticks": 400,
+  "has_before": false,
+  "processes": 6,
+  "estimator": "median of process tick medians; ratios are median of paired ratios",
+  "scope": "ECS ticks only; excludes setup, snapshots, per-tick hashing, networking and rendering",
+  "cases": [
+    {
+      "tagged": 0,
+      "workload": "churn",
+      "threads": 4,
+      "count": 0,
+      "id": "churn-2k-4",
+      "frozen": 0,
+      "rate": 2000,
+      "digest": "0xce59906bd9454a12",
+      "tide_ms": 0.35025,
+      "bevy_ms": 0.30455,
+      "c_ms": 0.2007,
+      "tide_range_ms": [
+        0.3312,
+        0.3655
+      ],
+      "bevy_range_ms": [
+        0.26305,
+        0.51825
+      ],
+      "c_range_ms": [
+        0.20005,
+        0.2007
+      ],
+      "ratio_bevy_over_tide": 0.9195350241545893,
+      "paired_ratios": [
+        0.7510349750178444,
+        1.4179206566347469,
+        0.9195350241545893
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.35025,
+          0.3655,
+          0.3312
+        ],
+        "Bevy": [
+          0.26305,
+          0.51825,
+          0.30455
+        ],
+        "C": [
+          0.2007,
+          0.2007,
+          0.20005
+        ]
+      }
+    }
+  ]
+}

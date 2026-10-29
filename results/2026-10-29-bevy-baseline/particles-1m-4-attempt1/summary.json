@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "rounds": 3,
+  "warmup": 200,
+  "ticks": 400,
+  "has_before": false,
+  "processes": 6,
+  "estimator": "median of process tick medians; ratios are median of paired ratios",
+  "scope": "ECS ticks only; excludes setup, snapshots, per-tick hashing, networking and rendering",
+  "cases": [
+    {
+      "tagged": 0,
+      "workload": "particles",
+      "threads": 4,
+      "count": 1000000,
+      "id": "particles-1m-4",
+      "frozen": 0,
+      "rate": 0,
+      "digest": "0x123220c22250196a",
+      "tide_ms": 0.1265,
+      "bevy_ms": 0.43015,
+      "c_ms": 0.1247,
+      "tide_range_ms": [
+        0.1248,
+        0.1274
+      ],
+      "bevy_range_ms": [
+        0.42965,
+        0.43565
+      ],
+      "c_range_ms": [
+        0.1233,
+        0.1258
+      ],
+      "ratio_bevy_over_tide": 3.4003952569169957,
+      "paired_ratios": [
+        3.4907852564102564,
+        3.372448979591836,
+        3.4003952569169957
+      ],
+      "process_medians_ms": {
+        "Tide": [
+          0.1248,
+          0.1274,
+          0.1265
+        ],
+        "Bevy": [
+          0.43565,
+          0.42965,
+          0.43015
+        ],
+        "C": [
+          0.1258,
+          0.1233,
+          0.1247
+        ]
+      }
+    }
+  ]
+}
